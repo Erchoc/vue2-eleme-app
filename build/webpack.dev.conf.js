@@ -1,6 +1,7 @@
 'use strict'
 const utils = require('./utils')
 const webpack = require('webpack')
+var express = require('express')
 const config = require('../config')
 const merge = require('webpack-merge')
 const path = require('path')
@@ -12,6 +13,40 @@ const portfinder = require('portfinder')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
+
+// 使用express处理mock数据
+var appServer = express();
+
+var appData = require('../data.json');
+
+var seller = appData.seller;
+var goods  = appData.goods;
+var ratings= appData.ratings;
+
+var apiRoutes = express.Router();
+
+apiRoutes.get('/seller', function (req, res) {
+  res.json({
+    errno: 0,
+    data: seller
+  })
+});
+apiRoutes.get('/goods', function (req, res) {
+  res.json({
+    errno: 0,
+    data: goods
+  })
+});
+apiRoutes.get('/ratings', function (req, res) {
+  res.json({
+    errno: 0,
+    data: ratings
+  })
+});
+
+appServer.use('/api', apiRoutes);
+
+// END
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -67,6 +102,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     ])
   ]
 })
+
 
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
