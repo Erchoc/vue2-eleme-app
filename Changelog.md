@@ -20,5 +20,8 @@
 - 修改部分样式,修改`reset.css`令超链接无下划线
 - 导航被点击后激活`vue-route`的`linkActiveClass`改变字体颜色
 
-
+### 发布日期：2018-5-25 移动端未测试
+- 封装`stylus`的`minin.styl`实现了导航条底部的像素边框在移动端两倍显示的问题,使用`http-server`调试移动端
+- 修改`icon.styl`引入字体的路径
+- 组件路径引入均使用`webpack`配置的`@ == src`别名
 

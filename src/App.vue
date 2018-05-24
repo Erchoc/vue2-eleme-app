@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-header></v-header>
-    <div class="tab">
+    <div class="tab border-1px">
       <div class="tab-item">
         <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
         <router-link to="/goods">商品</router-link>
@@ -29,12 +29,16 @@ export default {
 </script>
 
 <style lang="stylus">
+@import "./common/stylus/minin.styl";
+
   #app
     .tab
       display: flex
       width: 100%
       height: 40px
       line-height: 40px
+      // border-buttom: 1px solid rgba(7, 17, 27, 0.1)
+      border-1px(rgba(7, 17, 27, 0.1))
       .tab-item
         flex: 1
         text-align: center
