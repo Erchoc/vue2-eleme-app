@@ -15,36 +15,36 @@ const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
 // 使用express处理mock数据
-var appServer = express();
+// var appServer = express();
 
-var appData = require('../data.json');
+// var appData = require('../data.json');
 
-var seller = appData.seller;
-var goods  = appData.goods;
-var ratings= appData.ratings;
+// var seller = appData.seller;
+// var goods  = appData.goods;
+// var ratings= appData.ratings;
 
-var apiRoutes = express.Router();
+// var apiRoutes = express.Router();
 
-apiRoutes.get('/seller', function (req, res) {
-  res.json({
-    errno: 0,
-    data: seller
-  })
-});
-apiRoutes.get('/goods', function (req, res) {
-  res.json({
-    errno: 0,
-    data: goods
-  })
-});
-apiRoutes.get('/ratings', function (req, res) {
-  res.json({
-    errno: 0,
-    data: ratings
-  })
-});
+// apiRoutes.get('/seller', function (req, res) {
+//   res.json({
+//     errno: 0,
+//     data: seller
+//   })
+// });
+// apiRoutes.get('/goods', function (req, res) {
+//   res.json({
+//     errno: 0,
+//     data: goods
+//   })
+// });
+// apiRoutes.get('/ratings', function (req, res) {
+//   res.json({
+//     errno: 0,
+//     data: ratings
+//   })
+// });
 
-appServer.use('/api', apiRoutes);
+// appServer.use('/api', apiRoutes);
 
 // END
 
