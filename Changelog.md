@@ -14,3 +14,11 @@
 - 配置`.eslintrc.js`,使`ESLint`支持`semi分号`的使用
 - 防止`Vue`独有的`new Obj`语法被`ESLint`报错`no-new`,添加一行注释跳过检测
 - 完成组件拆分基本框架, 重命名`Header`组件为`v-header`
+
+### 发布日期：2018-5-24
+- 使用`vue-route`构建起`商品-评论-商家`基本架构页面
+- 修改部分样式,修改`reset.css`令超链接无下划线
+- 导航被点击后激活`vue-route`的`linkActiveClass`改变字体颜色
+
+
+

@@ -2,18 +2,24 @@
   <div id="app">
     <v-header></v-header>
     <div class="tab">
-      <div class="tab-item"> 商品 </div>
-      <div class="tab-item"> 评论 </div>
-      <div class="tab-item"> 商家 </div>
+      <div class="tab-item">
+        <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+        <router-link to="/goods">商品</router-link>
+      </div>
+      <div class="tab-item">
+        <router-link to="/ratings">评论</router-link>
+      </div>
+      <div class="tab-item">
+        <router-link to="/seller">商家</router-link>
+      </div>
     </div>
-    <div class="content">
-      Content
-    </div>
+    <!-- 路由出口:路由匹配到的组件将渲染在这里 -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Header from './components/header/Header';
+import Header from '@/components/header/Header';
 
 export default {
   components: {
@@ -32,4 +38,10 @@ export default {
       .tab-item
         flex: 1
         text-align: center
+        & > a
+          display: block
+          font-size: 14px
+          color: rgb(77, 85, 93)
+          &.active
+            color: rgb(240, 20, 20)
 </style>
