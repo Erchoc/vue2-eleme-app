@@ -6,11 +6,11 @@
 
 - [vue.js](https://github.com/vuejs/vue)
 - [vue-route](https://github.com/vuejs/vue-route)
-- [vue-resource](https://github.com/pagekit/vue-resource)
 - [vue-axios](https://github.com/vuejs/vue-axios)
 - [better-scroll](https://github.com/ustbhuangyi/better-scroll)
 - [webpack](https://github.com/webpack/webpack)
 - [vue-cli](https://github.com/vuejs/vue-cli)
+- [ESLint参考](https://www.cnblogs.com/my93/p/5681879.html)
 - [张鑫旭：如何利用icoMoon制作图标字体](http://www.zhangxinxu.com/wordpress/2012/06/free-icon-font-usage-icomoon/)
 
 ### TODO

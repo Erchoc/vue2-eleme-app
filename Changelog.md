@@ -20,8 +20,13 @@
 - 修改部分样式,修改`reset.css`令超链接无下划线
 - 导航被点击后激活`vue-route`的`linkActiveClass`改变字体颜色
 
-### 发布日期：2018-5-25 移动端未测试
-- 封装`stylus`的`minin.styl`实现了导航条底部的像素边框在移动端两倍显示的问题,使用`http-server`调试移动端
+### 发布日期：2018-5-24 移动端未测试
+- 利用伪类和缩放封装`stylus`的`minin.styl`实现导航条的像素边框在移动端显示问题,使用`http-server`调试移动端
 - 修改`icon.styl`引入字体的路径
 - 组件路径引入均使用`webpack`配置的`@ == src`别名
 
+### 发布日期：2018-5-25
+- 让`ESLint`忽视`函数参数前需要有空格`这个要求,`'space-before-function-paren': 0`
+- 参考[个人博客](https://www.cnblogs.com/myRain/p/7904651.html)修复BUG,使用`express`访问`api/seller|goods|ratings`可以获取`mock`数据了
+- 使用`vue`生命周期函数`created()`测试`axios`的`this.$ajax.get()`能正常获取`mock`接口数据
+- 更改开发使用的IDE为`WebStorm`

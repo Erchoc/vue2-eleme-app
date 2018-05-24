@@ -22,6 +22,22 @@
 import Header from '@/components/header/Header';
 
 export default {
+  data () {
+    return {
+      seller: {}
+    };
+  },
+  created () {
+    this.$ajax.get('/api/goods').then(res => {
+      console.log(res.data);
+    });
+    this.$ajax.get('/api/ratings').then(res => {
+      console.log(res.data);
+    });
+    this.$ajax.get('/api/seller').then(res => {
+      console.log(res.data);
+    });
+  },
   components: {
     'v-header': Header
   }
