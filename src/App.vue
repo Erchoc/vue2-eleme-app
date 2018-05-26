@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <v-header></v-header>
+    <v-header :seller="seller.data"></v-header>
     <div class="tab border-1px">
       <div class="tab-item">
         <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-        <router-link to="/goods">商品</router-link>
+        <router-link to="/goods">点餐</router-link>
       </div>
       <div class="tab-item">
         <router-link to="/ratings">评论</router-link>
@@ -28,14 +28,8 @@ export default {
     };
   },
   created () {
-    this.$ajax.get('/api/goods').then(res => {
-      console.log(res.data);
-    });
-    this.$ajax.get('/api/ratings').then(res => {
-      console.log(res.data);
-    });
     this.$ajax.get('/api/seller').then(res => {
-      console.log(res.data);
+      this.seller = res.data;
     });
   },
   components: {

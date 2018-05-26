@@ -25,8 +25,14 @@
 - 修改`icon.styl`引入字体的路径
 - 组件路径引入均使用`webpack`配置的`@ == src`别名
 
-### 发布日期：2018-5-25
+### 发布日期：2018-5-25 修复BUG
 - 让`ESLint`忽视`函数参数前需要有空格`这个要求,`'space-before-function-paren': 0`
 - 参考[个人博客](https://www.cnblogs.com/myRain/p/7904651.html)修复BUG,使用`express`访问`api/seller|goods|ratings`可以获取`mock`数据了
 - 使用`vue`生命周期函数`created()`测试`axios`的`this.$ajax.get()`能正常获取`mock`接口数据
 - 更改开发使用的IDE为`WebStorm`
+
+### 发布日期：2018-5-26
+- 组件资源就近维护,完成了Header组件的开发
+- 用函数封装`minin`,根据移动端设备`DPI`选择对应的图片
+- 使用上自定义的图标字体
+- 完成公告组件,`Header`组件的背景改成高斯模糊的图片
