@@ -36,3 +36,11 @@
 - 用函数封装`minin`,根据移动端设备`DPI`选择对应的图片
 - 使用上自定义的图标字体
 - 完成公告组件,`Header`组件的背景改成高斯模糊的图片
+
+### 发布日期：2018-5-28 修复BUG,弹出层过渡动画未实现
+- 修复BUG：`"TypeError: Cannot read property 'avatar' of undefined"`
+- 修复BUG：`Header`组件模糊溢出显示问题
+- 使用`CSS Sticky Footers`布局方式,完成详情弹出层页面显示和关闭
+- 抽象出五星级评分组件`Star`便于复用
+- 为弹出层添加了`vue2`的过渡期动画`<transition>`效果
+

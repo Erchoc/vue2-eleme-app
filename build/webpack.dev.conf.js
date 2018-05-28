@@ -17,12 +17,12 @@ const PORT = process.env.PORT && Number(process.env.PORT)
 // 使用express处理mock数据
 
 const app = express();
-var appData = require('../data.json');
-var seller = appData.seller;
-var goods = appData.goods;
-var ratings = appData.ratings;
+const appData = require('../data.json');
+const seller = appData.seller;
+const goods = appData.goods;
+const ratings = appData.ratings;
 
-var apiRoutes = express.Router();
+const apiRoutes = express.Router();
 app.use('/api',apiRoutes);
 
 // END
@@ -45,14 +45,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       }),
       app.get('/api/goods', (req, res) => {
         res.json({
-          // 这里是你的json内容
           errno: 0,
           data: goods
         })
       }),
       app.get('/api/ratings', (req, res) => {
         res.json({
-          // 这里是你的json内容
           errno: 0,
           data: ratings
         })

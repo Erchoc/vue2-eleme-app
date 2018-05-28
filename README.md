@@ -26,13 +26,14 @@
 - 学会使用`css`预处理器`stylus`语法
 - `webstorm`创建`vue`文件模板
 - [ESLint报错规则列表](http://eslint.cn/docs/rules)
-- 移动端经典`Flex`布局
+- 移动端经典`Flex`布局和`CSS Sticky Footers`布局
 
 
 ### 项目效果图
 
 
-
+### 项目上线
+- 
 
 
 ### 更多

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-header :seller="seller.data"></v-header>
+    <v-header :seller="seller"></v-header>
     <div class="tab border-1px">
       <div class="tab-item">
         <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
@@ -29,7 +29,7 @@ export default {
   },
   created () {
     this.$ajax.get('/api/seller').then(res => {
-      this.seller = res.data;
+      this.seller = res.data.data;
     });
   },
   components: {
