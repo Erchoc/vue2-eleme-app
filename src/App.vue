@@ -21,6 +21,8 @@
 <script>
 import Header from '@/components/header/Header';
 
+const ERR_OK = 0;
+
 export default {
   data () {
     return {
@@ -29,7 +31,9 @@ export default {
   },
   created () {
     this.$ajax.get('/api/seller').then(res => {
-      this.seller = res.data.data;
+      if (res.data.errno === ERR_OK) {
+        this.seller = res.data.data;
+      }
     });
   },
   components: {

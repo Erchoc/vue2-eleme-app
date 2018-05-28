@@ -31,10 +31,10 @@
     </div>
     <transition name="fade">
       <div v-show="detailShow" class="detail" transiton="fade">
-        <div class="detail-wraper clearfix">
+        <div class="detail-wrapper clearfix">
           <div class="detail-main">
             <h1 class="name">{{ seller.name }}</h1>
-            <div class="star-wraper">
+            <div class="star-wrapper">
               <v-star :size="48" :score="seller.score"></v-star>
             </div>
             <div class="title">
@@ -232,7 +232,7 @@ export default {
       height: 100%
       overflow: auto
       background: rgba(1, 17, 27, 0.8)
-      .detail-wraper
+      .detail-wrapper
         min-height: 100%
         width: 100%
         .detail-main
@@ -243,7 +243,7 @@ export default {
             text-align: center
             font-size: 16px
             font-weight: 700
-          .star-wraper
+          .star-wrapper
             margin-top: 18px
             padding: 2px 0
             text-align: center
