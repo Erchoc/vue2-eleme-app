@@ -37,3 +37,4 @@
 
 
 ### 更多
+- 开发期间参考了：https://github.com/LeaderAndMaster/vue2-element

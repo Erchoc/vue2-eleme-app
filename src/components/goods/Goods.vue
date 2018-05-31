@@ -34,6 +34,9 @@
                 <div class="price">
                   <span class="now"> ¥{{ food.price }}</span><span class="old" v-show="food.oldPrice"> ¥{{ food.oldPrice }}</span>
                 </div>
+                <div class="cartcontrol-wrapper">
+                  <v-cartcontrol :food="food"></v-cartcontrol>
+                </div>
               </div>
             </li>
           </ul>
@@ -42,7 +45,9 @@
     </div>
     <v-shopcart
       :delivery-price="seller.deliveryPrice"
-      :min-price="seller.minPrice">
+      :min-price="seller.minPrice"
+      :select-foods="selectFoods"
+    >
     </v-shopcart>
   </div>
 </template>
@@ -50,6 +55,7 @@
 <script>
 import BScroll from 'better-scroll';
 import Shopcart from '@/components/shopcart/Shopcart';
+import Cartcontrol from '@/components/cartcontrol/Cartcontrol';
 
 const ERR_OK = 0;
 
@@ -78,10 +84,24 @@ export default {
         }
       }
       return 0;
+    },
+    // 实现兄弟组件之间数据通讯，显示效果联动
+    // eslint-disable-next-line
+    selectFoods () {
+      let foods = [];
+      this.goods.forEach((good) => {
+        good.foods.forEach((food) => {
+          if (food.count) {
+            foods.push(food);
+          }
+        });
+      });
+      return foods;
     }
   },
   components: {
-    'v-shopcart': Shopcart
+    'v-shopcart': Shopcart,
+    'v-cartcontrol': Cartcontrol
   },
   methods: {
     _initScroll () {
@@ -90,6 +110,7 @@ export default {
       });
 
       this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
+        click: true,
         probeType: 3
       });
 
@@ -237,4 +258,8 @@ export default {
               text-decoration: line-through
               font-size: 10px
               color: rgb(147, 153, 159)
+          .cartcontrol-wrapper
+            position: absolute
+            right: 0
+            bottom: 12px
 </style>

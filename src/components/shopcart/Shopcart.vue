@@ -12,8 +12,8 @@
           <div class="description"> 另需配送费¥{{ deliveryPrice }}元 </div>
         </div>
         <div class="content-right">
-          <div class="pay">
-            ¥ {{ minPrice }}元起送
+          <div class="pay" :class="payStatus">
+            {{ payDesc }}
           </div>
         </div>
       </div>
@@ -32,8 +32,8 @@ export default {
             count: 1
           },
           {
-            price: 24,
-            count: 3
+            price: 12,
+            count: 2
           }
         ];
       }
@@ -61,6 +61,23 @@ export default {
         count += food.count;
       });
       return count;
+    },
+    payDesc () {
+      if (this.totalPrice === 0) {
+        // eslint-disable-next-line
+        return `¥${ this.minPrice } 元起送`;
+      } else if (this.totalPrice < this.minPrice) {
+        let diff = this.minPrice - this.totalPrice;
+        // eslint-disable-next-line
+        return `还差¥${ diff } 元起送`;
+      }
+      return '去结算';
+    },
+    payStatus () {
+      if (this.totalPrice < this.minPrice) {
+        return 'not-enough';
+      }
+      return 'enough';
     }
   }
 };
@@ -151,4 +168,9 @@ export default {
           font-size: 12px
           font-weight: 700
           background: #2b333b
+          &.not-enough
+            background: #2b333b
+          &.enough
+            background: #00b43c
+            color: #fff
 </style>
