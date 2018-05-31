@@ -40,11 +40,16 @@
         </li>
       </ul>
     </div>
+    <v-shopcart
+      :delivery-price="seller.deliveryPrice"
+      :min-price="seller.minPrice">
+    </v-shopcart>
   </div>
 </template>
 
 <script>
 import BScroll from 'better-scroll';
+import Shopcart from '@/components/shopcart/Shopcart';
 
 const ERR_OK = 0;
 
@@ -74,6 +79,9 @@ export default {
       }
       return 0;
     }
+  },
+  components: {
+    'v-shopcart': Shopcart
   },
   methods: {
     _initScroll () {
