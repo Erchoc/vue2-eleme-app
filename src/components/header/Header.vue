@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="content-wrapper">
+    <div class="content-wrapper" @click="showDetail()">
       <div class="avatar">
         <img width="64" height="64" :src="seller.avatar" alt="photo">
       </div>
@@ -18,11 +18,11 @@
         </div>
       </div>
       <div v-if="seller.supports" class="support-count" @click="showDetail()">
-        <span class="count">{{ seller.supports.length }}个</span>
+        <span class="count"> {{ seller.supports.length }} Km</span>
         <i class="icon-keyboard_arrow_right"></i>
       </div>
     </div>
-    <div class="bulletin-wrapper" @click="showDetail()">
+    <div class="bulletin-wrapper">
       <span class="bulletin-title"></span><span class="bulletin-text">{{ seller.bulletin }}</span>
       <i class="icon-keyboard_arrow_right"></i>
     </div>
@@ -61,8 +61,8 @@
             </div>
           </div>
         </div>
-        <div class="detail-close">
-          <i class="icon-close" @click="closeDetail()"></i>
+        <div class="detail-close" @click="closeDetail()">
+          <i class="icon-close"></i>
         </div>
       </div>
     </transition>
