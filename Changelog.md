@@ -91,3 +91,14 @@
 - 评论页左右侧显示
 - 评论页使用媒体查询`media query`解决低分辨率设备折行问题
 - 评论页上下分割线组件复用
+
+# 发布日期：2018-6-5
+- 使用`padding-top: 100%`限定图片加载前固定图片高度
+- 使用`base64`矢量图设置关闭涂层的返回按钮
+- 修复`food`商品旧价格无法显示的人为BUG:`修改data.json后需要重启webpack`
+- 引入`better-scroll`,绑定`.food`节点,在`show()`方法中初始化异步`better-scroll`
+- 阻止`cartcontrol`添加按钮的冒泡事件(穿透)使用`@click.stop.prevent=""`即可
+- 商品详情页显示加入购物车按钮,同时复用`cartcontrol`组件
+- `better-scroll`失效问题
+
+

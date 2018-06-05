@@ -4,7 +4,7 @@
       <div
         class="cart-decrease"
         v-show="food.count>0"
-        @click.stop.prevent="decreaseCart()"
+        @click.stop.prevent="decreaseCart"
       >
         <span class="inner icon-remove_circle_outline"></span>
       </div>
@@ -17,7 +17,7 @@
     </div>
     <div
       class="cart-increase icon-increase_circle"
-      @click="addCart"
+      @click.stop.prevent="addCart"
     >
     </div>
   </div>
