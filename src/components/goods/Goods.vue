@@ -17,10 +17,18 @@
     </div>
     <div class="foods-wrapper" ref="foodsWrapper">
       <ul>
-        <li class="food-list food-list-hook" v-for="(item, index) in goods" :key="index">
+        <li
+          class="food-list food-list-hook"
+          v-for="(item, index) in goods"
+          :key="index"
+        >
           <h1 class="title">{{ item.name }}</h1>
           <ul>
-            <li class="food-item border-1px" v-for="(food, index) in item.foods" :key="index">
+            <li class="food-item border-1px"
+                v-for="(food, index) in item.foods"
+                :key="index"
+                @click="foodDetail(food)"
+            >
               <div class="icon">
                 <img width="58" height="58" :src="food.icon" alt="food" />
               </div>
@@ -49,6 +57,7 @@
       :select-foods="selectFoods"
     >
     </v-shopcart>
+    <v-food :food="selectedFood" ref="food"></v-food>
   </div>
 </template>
 
@@ -56,6 +65,7 @@
 import BScroll from 'better-scroll';
 import Shopcart from '@/components/shopcart/Shopcart';
 import Cartcontrol from '@/components/cartcontrol/Cartcontrol';
+import Food from '@/components/food/Food';
 
 const ERR_OK = 0;
 
@@ -69,7 +79,8 @@ export default {
     return {
       goods: [],
       listHeight: [],
-      scrollY: 0
+      scrollY: 0,
+      selectedFood: {}
     };
   },
   computed: {
@@ -101,7 +112,8 @@ export default {
   },
   components: {
     'v-shopcart': Shopcart,
-    'v-cartcontrol': Cartcontrol
+    'v-cartcontrol': Cartcontrol,
+    'v-food': Food
   },
   methods: {
     _initScroll () {
@@ -117,6 +129,11 @@ export default {
       this.foodsScroll.on('scroll', (pos) => {
         this.scrollY = Math.abs(Math.round((pos.y)));
       });
+    },
+    foodDetail (food) {
+      this.selectedFood = food;
+      // 调用子组件的show方法
+      this.$refs.food.show();
     },
     _calculateBlockHeight () {
       let foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook');

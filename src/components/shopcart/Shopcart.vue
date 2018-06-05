@@ -38,6 +38,9 @@
           </div>
         </div>
       </transition>
+      <transition name="fade-backdrop">
+        <div class="backdrop" v-show="hideBackdrop" @click="showBackdrop"></div>
+      </transition>
     </div>
 </template>
 
@@ -78,6 +81,9 @@ export default {
       }
       this.fold = !this.fold;
     },
+    showBackdrop() {
+      this.fold = false;
+    },
     setEmpty () {
       this.selectFoods.forEach((food) => {
         food.count = 0;
@@ -85,6 +91,12 @@ export default {
     }
   },
   computed: {
+    hideBackdrop() {
+      if (!this.fold) {
+        return true;
+      }
+      return false;
+    },
     totalPrice () {
       let total = 0;
       this.selectFoods.forEach((food) => {
@@ -287,4 +299,17 @@ export default {
           .cartcontrol-wrapper
             font-size: 14px
             margin-top: 6px
+    .backdrop
+      position: fixed
+      top: 0
+      /*bottom: 0*/
+      left: 0
+      right: 0
+      background: rgba(7, 17, 27, 0.6)
+      backdrop-filter: blur(10px)
+      z-index: 40
+      &.fade-backdrop-enter-active,&.fade-backdrop-leave-active
+        transition: opacity 0.5s
+      &.fade-backdrop-enter,&.fade-backdrop-leave-active
+        opacity: 0
 </style>
