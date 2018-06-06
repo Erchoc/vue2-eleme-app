@@ -30,7 +30,7 @@
                 <div class="price">
                   <span>¥{{ food.price * food.count }}</span>
                 </div>
-                <div class="cartcontrol-wrapper">
+                <div class="cartcontrol-cart-wrapper">
                   <v-cartcontrol :food="food"></v-cartcontrol>
                 </div>
               </li>
@@ -161,7 +161,6 @@ export default {
     position: fixed
     left: 0
     bottom: 0
-    z-index: 50
     width: 100%
     height: 48px
     .content
@@ -169,6 +168,7 @@ export default {
       background: #141d27
       font-size: 0
       color: rgba(255, 255, 255, 0.4)
+      z-index: 60
       .content-left
         flex: 1
         .logo-wrapper
@@ -251,12 +251,12 @@ export default {
       left: 0
       width: 100%
       background: #fff
-      transform translate3d(0,-100%,0)
-      z-index -1
+      transform: translate3d(0, -100%, 0)
+      z-index: -1
       &.transHeight-enter-active,&.transHeight-leave-active
-        transition all 0.5s
+        transition all 0.5s linear
       &.transHeight-enter,&.transHeight-leave-active
-        transform translate3d(0,0,0)
+        transform translate3d(0, 0, 0)
       .list-header
         height: 40px
         line-height: 40px
@@ -264,21 +264,20 @@ export default {
         background: #f3f5f7
         border-bottom: 1px solid rgba(7, 17, 27,0.1)
         .title
-          display: inline-block
           float: left
           font-size: 14px
           font-weight: 700
           color: rgb(7, 17, 27)
         .empty
-          position: absolute
-          right: 8px
+          float: right
           font-size: 12px
-          padding: 0 10px
           font-weight: 700
           color: rgb(0, 160, 220)
       .list-content
+        padding: 0 18px
         max-height: 217px
         overflow: hidden
+        background: #fff
         .food
           position: relative
           display: flex
@@ -292,24 +291,28 @@ export default {
             font-weight: 300
             color: rgb(7, 17,27)
           .price
+            flex: 1
+            text-align: center
             line-height: 48px
             font-size: 14px
             font-weight: 700
             color: rgb(240, 20, 20)
-          .cartcontrol-wrapper
-            font-size: 14px
-            margin-top: 6px
+          .cartcontrol-cart-wrapper
+            flex: 1
+            height: 100%
+            font-size 14px
+            margin-top 6px
     .backdrop
       position: fixed
       top: 0
-      /*bottom: 0*/
+      bottom: 0
       left: 0
       right: 0
       background: rgba(7, 17, 27, 0.6)
       backdrop-filter: blur(10px)
-      z-index: 40
+      z-index: -100
       &.fade-backdrop-enter-active,&.fade-backdrop-leave-active
-        transition: opacity 0.5s
+        transition: opacity 0.5s linear
       &.fade-backdrop-enter,&.fade-backdrop-leave-active
         opacity: 0
 </style>

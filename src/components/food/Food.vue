@@ -31,8 +31,19 @@
           <div class="title"> 商品信息 </div>
           <p class="text">{{ food.info }}</p>
         </div>
-        <v-split></v-split>
-        <div style="height: 500px; background: #555;"></div>
+        <v-split v-show="food.ratings"></v-split>
+        <div class="ratings" v-show="food.ratings">
+          <h1 class="title"> 商品评价 </h1>
+          <v-ratingselect
+            :select-type="selectType"
+            :onlyContent="onlyContent"
+            :desc="desc"
+            :ratings="food.ratings"
+          ></v-ratingselect>
+          <ul>
+            <li></li>
+          </ul>
+        </div>
       </div>
     </div>
   </transition>
@@ -43,7 +54,11 @@ import BScroll from 'better-scroll';
 import Vue from 'vue';
 import Cartcontrol from '@/components/cartcontrol/Cartcontrol';
 import Split from '@/components/split/Split';
+import Ratingselect from '@/components/ratingselect/Ratingselect';
 
+// const POSITIVE = 0;
+// const NEGATIVE = 1;
+const ALL = 2;
 export default {
   props: {
     food: {
@@ -52,12 +67,21 @@ export default {
   },
   data () {
     return {
-      showFlag: false
+      showFlag: false,
+      selectType: ALL,
+      onlyContent: true,
+      desc: {
+        all: '全部',
+        positive: '推荐',
+        negative: '吐槽'
+      }
     };
   },
   methods: {
     show () {
       this.showFlag = true;
+      this.selectType = ALL;
+      this.onlyContent = true;
       this.$nextTick(() => {
         if (!this.scroll) {
           this.scroll = new BScroll(this.$refs.foodsWrapper, {
@@ -77,7 +101,8 @@ export default {
   },
   components: {
     'v-cartcontrol': Cartcontrol,
-    'v-split': Split
+    'v-split': Split,
+    'v-ratingselect': Ratingselect
   }
 };
 </script>
@@ -186,4 +211,12 @@ export default {
         padding: 0 8px
         font-size: 12px
         color: rgb(77, 85, 93)
+    .ratings
+      padding-top: 18px
+      .title
+        line-height: 14px
+        margin-left: 18px
+        font-size: 14px
+        font-weight: 500
+        color: rgb(7, 17, 27)
 </style>

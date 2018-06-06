@@ -101,4 +101,12 @@
 - 商品详情页显示加入购物车按钮,同时复用`cartcontrol`组件
 - `better-scroll`失效问题
 
+### 发布日期：2018-6-6 修复BUG又来了新的BUG
+- `better-scroll`失效问题莫名其妙解决了，啥都没做
+- 抽象出`Ratingselect`组件，维护父组件传递的选择类型，是否只看内容，描述
+- 修复了`Shopcart`中价格显示bug: 未设置`flex: 1`
+- 修复了`Shopcart`中`cartcontrol`向上偏移问题: `Food`和`cartcontrol`组件类名重复
+- 修复了购物车列表显示时，上方浮层计算问题: 无需计算，设置`z-index`覆盖即可
+- 商品详情页存在显示BUG以及购物车内容BUG
 
+ 
