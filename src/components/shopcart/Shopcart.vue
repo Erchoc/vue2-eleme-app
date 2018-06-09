@@ -154,7 +154,7 @@ export default {
 };
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 @import "../../common/stylus/minin.styl";
 
   .shopcart
@@ -163,6 +163,7 @@ export default {
     bottom: 0
     width: 100%
     height: 48px
+    z-index: 100
     .content
       display: flex
       background: #141d27

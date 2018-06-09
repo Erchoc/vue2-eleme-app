@@ -39,6 +39,8 @@
             :onlyContent="onlyContent"
             :desc="desc"
             :ratings="food.ratings"
+            :select="ratingTypeChange"
+            :toggle="ContentToggle"
           ></v-ratingselect>
           <ul>
             <li></li>
@@ -55,9 +57,10 @@ import Vue from 'vue';
 import Cartcontrol from '@/components/cartcontrol/Cartcontrol';
 import Split from '@/components/split/Split';
 import Ratingselect from '@/components/ratingselect/Ratingselect';
-
-// const POSITIVE = 0;
-// const NEGATIVE = 1;
+// eslint-disable-next-line
+const POSITIVE = 0;
+// eslint-disable-next-line
+const NEGATIVE = 1;
 const ALL = 2;
 export default {
   props: {
@@ -97,7 +100,9 @@ export default {
     },
     addFirst () {
       Vue.set(this.food, 'count', 1);
-    }
+    },
+    ratingTypeChange() {},
+    ContentToggle() {}
   },
   components: {
     'v-cartcontrol': Cartcontrol,
@@ -107,7 +112,7 @@ export default {
 };
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 
   .food
     position: fixed
@@ -136,7 +141,7 @@ export default {
       .back
         position: absolute
         top: 10px
-        left: 0
+        left: 10px
         .icon-arrow_lift
           display: block
           padding: 18px

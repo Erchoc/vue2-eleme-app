@@ -422,7 +422,7 @@
     },
     {
       "name": "鸡翅/鸡排",
-      "type": 1,
+      "type": -1,
       "foods": [
         {
           "name": "(20块)香辣鸡翅",
@@ -455,7 +455,7 @@
     },
     {
       "name": "美味汉堡",
-      "type": -1,
+      "type": 1,
       "foods": [
         {
           "name": "娃娃菜炖豆腐",
@@ -912,6 +912,32 @@
           ],
           "icon": "http://fuss10.elemecdn.com/0/05/097a2a59fd2a2292d08067e16380cjpeg.jpeg?imageView2/1/w/114/h/114",
           "image": "http://fuss10.elemecdn.com/0/05/097a2a59fd2a2292d08067e16380cjpeg.jpeg?imageView2/1/w/750/h/750"
+        }
+      ]
+    },
+    {
+      "name": "原味鸭子",
+      "type": -2,
+      "foods": [
+        {
+          "name": "(一块)吮指原味鸡丁",
+          "price": 12,
+          "oldPrice": 36,
+          "description": "红枣山药糙米粥,素材包,爽口莴笋丝,四川泡菜或八宝酱菜,配菜可备注",
+          "sellCount": 17,
+          "rating": 100,
+          "info": "",
+          "ratings": [
+            {
+              "username": "2******3",
+              "rateTime": 1469271264000,
+              "rateType": 0,
+              "text": "",
+              "avatar": "http://static.galileo.xiaojukeji.com/static/tms/default_header.png"
+            }
+          ],
+          "icon": "https://fuss10.elemecdn.com/8/d3/d63bf7c1cd21c545bd34ab0fe3016jpeg.jpeg?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/",
+          "image": "https://fuss10.elemecdn.com/a/7c/a7e9e5aa15b1b8fc6f1bece8ee385jpeg.jpeg?imageMogr/format/webp/thumbnail/!750x750r/gravity/Center/crop/750x750/"
         }
       ]
     }
